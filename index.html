@@ -851,6 +851,40 @@ a:hover{text-decoration:underline}
   .pillar-value{padding:16px 22px}
   .prose p{font-size:17px}
 }
+
+/* ============================================================
+   INTERNET COURT — agentic-commerce stack diagram
+   ============================================================ */
+.ic-diagram{display:flex;gap:14px;align-items:stretch}
+.ic-bracket{
+  flex-shrink:0;width:56px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;
+  border:1.5px solid var(--border-strong);border-radius:10px;background:#fcfcfd;padding:14px 0;
+}
+.ic-bracket-label{
+  writing-mode:vertical-rl;transform:rotate(180deg);
+  font-family:"Geist",system-ui,sans-serif;font-weight:700;font-size:14px;letter-spacing:.05em;
+  text-transform:uppercase;color:var(--ink-strong);white-space:nowrap;
+}
+.ic-bracket-sub{
+  writing-mode:vertical-rl;transform:rotate(180deg);
+  font-size:10.5px;letter-spacing:.03em;color:var(--muted);white-space:nowrap;
+}
+.ic-stack{flex:1;display:flex;flex-direction:column;gap:8px}
+.ic-row{display:flex;align-items:center;gap:12px}
+.ic-no{font-family:"Geist",system-ui,sans-serif;font-size:11.5px;font-weight:700;color:var(--faint);width:22px;flex-shrink:0;text-align:right}
+.ic-block{
+  flex:1;display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap;
+  border:1px solid var(--border-strong);border-radius:10px;background:#fff;padding:12px 16px;
+}
+.ic-name{font-family:"Geist",system-ui,sans-serif;font-weight:600;font-size:14.5px;color:var(--ink-strong)}
+.ic-std{font-size:12.5px;color:var(--muted)}
+.ic-row-genlayer .ic-block{border:1.5px solid var(--violet);background:linear-gradient(180deg,#fbfaff,var(--lavender))}
+.ic-row-genlayer .ic-name{color:var(--violet-text)}
+.ic-row-genlayer .ic-std{color:var(--violet-text)}
+.ic-row-genlayer .ic-std strong{color:var(--violet-text);font-weight:700}
+.ic-tag{flex-shrink:0;width:118px;font-size:11.5px;font-weight:600;color:var(--violet-text);line-height:1.35}
+@media (max-width:760px){.ic-tag{display:none}.ic-bracket{width:46px}.ic-bracket-sub{display:none}}
+
 </style>
 </head>
 <body>
@@ -1053,27 +1087,44 @@ a:hover{text-decoration:underline}
         <p>Read the specifications of the agentic-commerce stack as it is being released right now. x402 has no formal dispute mechanism. ERC-8004: adjudication is managed by specific validation protocols. A2A: dispute resolution is not defined within the protocol.</p>
         <p>These are not opinions. They are the published specifications of three foundational standards of the emerging stack: the payment layer (Coinbase&rsquo;s x402), the trustless-agent identity and reputation layer (ERC-8004), and the agent interoperability layer (Google&rsquo;s A2A, now under the Linux Foundation). Read them. Notice what is missing.</p>
 
+        <p>GenLayer is the adjudication layer for the agentic-commerce stack: machine-speed judgment when a transaction becomes ambiguous or contested. Internet Court &mdash; one of our own initiatives &mdash; is the open standard and agent skill that connects these layers into a full transaction path: discovery, negotiation, contracts, payment, escrow, execution, verification, and disputes, with GenLayer as its adjudication layer.</p>
+
         <div class="diagram">
           <div class="diagram-title">The agentic-commerce stack, 2026</div>
-          <div class="stack">
-            <div class="stack-row stack-missing">
-              <div class="stack-block"><span class="sb-name">Adjudication</span><span class="sb-std">GenLayer</span></div>
-              <span class="stack-note">The missing layer — disputes, judgment, consequences</span>
+          <div class="ic-diagram">
+            <div class="ic-bracket">
+              <span class="ic-bracket-label">Internet Court</span>
+              <span class="ic-bracket-sub">Open standard · agent skill</span>
             </div>
-            <div class="stack-row">
-              <div class="stack-block"><span class="sb-name">Interoperability</span><span class="sb-std">A2A &middot; Linux Foundation</span></div>
-              <span class="stack-note">How agents discover each other and exchange tasks</span>
-            </div>
-            <div class="stack-row">
-              <div class="stack-block"><span class="sb-name">Identity &amp; reputation</span><span class="sb-std">ERC-8004 &middot; Ethereum</span></div>
-              <span class="stack-note">Trustless agent identity</span>
-            </div>
-            <div class="stack-row">
-              <div class="stack-block"><span class="sb-name">Payments</span><span class="sb-std">x402 &middot; Coinbase</span></div>
-              <span class="stack-note">Machine-speed money</span>
+            <div class="ic-stack">
+              <div class="ic-row">
+                <span class="ic-no">01</span>
+                <div class="ic-block"><span class="ic-name">Discovery, identity &amp; reputation</span><span class="ic-std">ERC-7857 &middot; ERC-8004</span></div>
+              </div>
+              <div class="ic-row">
+                <span class="ic-no">02</span>
+                <div class="ic-block"><span class="ic-name">Negotiation</span><span class="ic-std">A2A</span></div>
+              </div>
+              <div class="ic-row">
+                <span class="ic-no">03</span>
+                <div class="ic-block"><span class="ic-name">Contracts &amp; obligations</span><span class="ic-std">ERC-7710 &middot; ERC-8183 &middot; Arkhai</span></div>
+              </div>
+              <div class="ic-row">
+                <span class="ic-no">04</span>
+                <div class="ic-block"><span class="ic-name">Payment &amp; escrow</span><span class="ic-std">x402 &middot; MPP &middot; APP</span></div>
+              </div>
+              <div class="ic-row">
+                <span class="ic-no">05</span>
+                <div class="ic-block"><span class="ic-name">Execution</span><span class="ic-std">OpenClaw &middot; Hermes</span></div>
+              </div>
+              <div class="ic-row ic-row-genlayer">
+                <span class="ic-no">06</span>
+                <div class="ic-block"><span class="ic-name">Verification &amp; disputes</span><span class="ic-std"><strong>GenLayer</strong> &middot; Kleros &middot; UMA</span></div>
+                <span class="ic-tag">GenLayer — the judgment layer</span>
+              </div>
             </div>
           </div>
-          <p class="diagram-cap">Every layer ships the happy path. None of them ships dispute resolution.</p>
+          <p class="diagram-cap">GenLayer is the adjudication layer that makes the stack safe when something goes wrong. Internet Court connects the full path around it.</p>
         </div>
         <p>Every layer of the stack has been engineered with extraordinary care to handle the moment when everything goes right. None of the layers handles the moment when something goes wrong. The payment goes through. The job is accepted. The reputation is updated. The identity is established. And then a single dispute appears &mdash; over a delivered specification, an interpreted clause, a missed deadline &mdash; and the entire stack reaches for a function it does not yet have.</p>
         <p>That function is <strong>adjudication</strong>. Not adjudication in the narrow courtroom sense. Not a sovereign court. Not a replacement for every legal system. Adjudication in the deeper sense: a credible mechanism for evaluating contested commitments, weighing evidence, interpreting language, reaching a judgment, and attaching consequences to it.</p>
@@ -1309,7 +1360,7 @@ a:hover{text-decoration:underline}
       <ul class="lines reveal-stagger">
         <li><span class="line-tag">The category line</span><span>Agentic Adjudication Layer. GenLayer is the adjudication layer for the agentic economy.</span></li>
         <li><span class="line-tag">The villain line</span><span>By 2030, AI agents will run businesses, manage portfolios, and make deals. They do not sleep. They cannot go to court.</span></li>
-        <li><span class="line-tag">The proof line</span><span>x402 ships payments. ERC-8004 ships identity. A2A ships agent interoperability. None of them ships dispute resolution.</span></li>
+        <li><span class="line-tag">The proof line</span><span>x402 ships payments. ERC-8004 ships identity. A2A ships negotiation. ERC-8183 and Arkhai move contract structure forward. OpenClaw and Hermes address execution. Internet Court connects the stack. GenLayer resolves the disputes.</span></li>
         <li><span class="line-tag">The extension line</span><span>Machine-speed systems need machine-speed money. Machine-speed money needs machine-speed adjudication.</span></li>
         <li><span class="line-tag">The hero line</span><span>GenLayer is not a trust mechanism. It is a mechanism to substitute trust.</span></li>
         <li><span class="line-tag">The promise</span><span>Justice in minutes, not months.</span></li>
@@ -1317,7 +1368,7 @@ a:hover{text-decoration:underline}
       </ul>
       <div class="prose" style="max-width:var(--ed-measure)">
         <h4>The long description</h4>
-        <p>GenLayer is the Agentic Adjudication Layer: the missing piece of infrastructure for the agentic economy. As AI agents begin to transact, enter into agreements, and coordinate work autonomously, disputes will follow. Smart contracts cannot handle ambiguity because they only work when outcomes can be reduced to deterministic code. Courts can, but far too slowly for an economy running at machine speed. GenLayer exists to close that gap.</p>
+        <p>GenLayer is the Agentic Adjudication Layer: the missing piece of infrastructure for the agentic economy. As AI agents begin to transact, enter into agreements, and coordinate work autonomously, disputes will follow. Smart contracts cannot handle ambiguity because they only work when outcomes can be reduced to deterministic code. Courts can, but far too slowly for an economy running at machine speed. GenLayer exists to close that gap. GenLayer can also be exposed, through Internet Court, as one adjudication path inside a broader open standard for agent-to-agent contracts, alongside identity, negotiation, payment, escrow, execution, and reputation systems.</p>
         <p>At the core of GenLayer is the <strong>Intelligent Contract</strong>: a new kind of smart contract, written in Python, that can read the web, interpret natural language, and evaluate the kind of subjective claims ordinary smart contracts cannot. Intelligent Contracts run inside <strong>GenVM</strong>, GenLayer&rsquo;s sandboxed execution environment, and are resolved through <strong>Optimistic Democracy</strong>, a delegated proof-of-stake consensus mechanism in which a randomly selected set of validators, each connected to a different large language model, evaluates the outcome of a transaction. When validators disagree, the validator set rotates, and anyone can appeal to expand the validator set until the network either reaches finality or determines that the question is undecidable.</p>
         <p>The technical breakthrough behind this is the <strong>Equivalence Principle</strong>: a way for different models to agree when two outputs differ in form but are equivalent in meaning. That makes decentralized consensus on non-deterministic outcomes possible, and allows GenLayer to function as a fast, cost-efficient, and trustworthy adjudication layer for the next generation of digital commerce.</p>
 
@@ -1467,7 +1518,7 @@ a:hover{text-decoration:underline}
         <div class="prose">
           <p>GenLayer is the adjudication layer for the agentic economy. It uses decentralized AI validator consensus to resolve contracts that require judgment, not just code.</p>
           <p>As software begins to negotiate, transact, execute tasks, and coordinate economic activity on behalf of humans and other systems, ambiguity will scale. The moment meaningful commitments are made at machine speed, disputes also begin to appear at machine speed: whether something was delivered, whether it met the agreed standard, whether a clause was satisfied, whether an outcome is close enough to count, whether the evidence is sufficient. That is where deterministic systems stop being enough.</p>
-          <p>This is the missing primitive. Payments, identity, reputation, and workflow infrastructure can move activity forward, but they do not resolve contested commitments. They assume alignment. Real economies do not. The more economically meaningful the activity becomes, the more costly that assumption becomes. Without an adjudication layer, the stack works only on the happy path. It scales until the first material disagreement, and then it is forced back into slower, more fragmented, and more trust-dependent systems.</p>
+          <p>This is the missing primitive. Payments, identity, reputation, and workflow infrastructure can move activity forward, but they do not resolve contested commitments. They assume alignment. Real economies do not. The more economically meaningful the activity becomes, the more costly that assumption becomes. Without an adjudication layer, the stack works only on the happy path. It scales until the first material disagreement, and then it is forced back into slower, more fragmented, and more trust-dependent systems. GenLayer is the mechanism that lets the stack continue operating once interpretation, evidence, and disagreement enter the picture; Internet Court is the coordination surface for that broader stack.</p>
           <p>GenLayer exists to ensure that this does not become the bottleneck of the next economy. We exist to provide the missing layer that lets machine-native commitments remain enforceable even when they become ambiguous, contested, or non-deterministic. We exist so that builders can create agentic systems that do not collapse the moment interpretation is required. We exist so that machine-speed money is matched by machine-speed adjudication.</p>
           <p><strong>Enable agentic commerce. Everything else in this document is the unpacking.</strong></p>
         </div>
@@ -1607,6 +1658,10 @@ a:hover{text-decoration:underline}
         <a class="res" href="https://portal.genlayer.foundation" target="_blank" rel="noopener">
           <span class="res-name">Foundation Portal</span>
           <span class="res-desc">Contribute as a builder, validator, or community member.</span>
+        </a>
+        <a class="res" href="https://internetcourt.org" target="_blank" rel="noopener">
+          <span class="res-name">Internet Court</span>
+          <span class="res-desc">One of our initiatives — an open standard and agent skill for agent-to-agent contracts, connecting identity, negotiation, contracts, payment, escrow, execution, verification, and disputes, with GenLayer as its adjudication layer.</span>
         </a>
         <a class="res" href="https://github.com/genlayerlabs" target="_blank" rel="noopener">
           <span class="res-name">GitHub</span>
